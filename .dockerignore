@@ -1,0 +1,13 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+.vscode
+.idea
+*.log
+.DS_Store
+docker-compose.override.yml
+deploy.sh
+deploy.bat
+test.js
+test-report.json

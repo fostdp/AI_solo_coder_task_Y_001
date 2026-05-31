@@ -1,0 +1,125 @@
+{
+  "summary": {
+    "total": 19,
+    "passed": 19,
+    "failed": 0,
+    "passRate": 1
+  },
+  "details": [
+    {
+      "testName": "透射系数 - 深势垒，低能量",
+      "status": "PASS",
+      "details": "T理论=0.00029734, 状态=E < V₀ - 量子隧穿, 相对误差=0.0000%",
+      "timestamp": "2026-05-13T04:40:34.184Z"
+    },
+    {
+      "testName": "透射系数 - 深势垒，中等能量",
+      "status": "PASS",
+      "details": "T理论=0.00716705, 状态=E < V₀ - 量子隧穿, 相对误差=0.0000%",
+      "timestamp": "2026-05-13T04:40:34.185Z"
+    },
+    {
+      "testName": "透射系数 - 深势垒，接近势垒高度",
+      "status": "PASS",
+      "details": "T理论=0.06476053, 状态=E < V₀ - 量子隧穿, 相对误差=0.0000%",
+      "timestamp": "2026-05-13T04:40:34.186Z"
+    },
+    {
+      "testName": "透射系数 - E = V₀ 共振情况",
+      "status": "PASS",
+      "details": "T理论=0.16666667, 状态=E ≈ V₀ - 共振隧穿, 相对误差=0.0000%",
+      "timestamp": "2026-05-13T04:40:34.186Z"
+    },
+    {
+      "testName": "透射系数 - E > V₀ 量子振荡散射",
+      "status": "PASS",
+      "details": "T理论=0.92681677, 状态=E > V₀ - 量子振荡散射, 相对误差=0.0000%",
+      "timestamp": "2026-05-13T04:40:34.186Z"
+    },
+    {
+      "testName": "透射系数 - 中等势垒，标准情况",
+      "status": "PASS",
+      "details": "T理论=0.00128818, 状态=E < V₀ - 量子隧穿, 相对误差=0.0000%",
+      "timestamp": "2026-05-13T04:40:34.186Z"
+    },
+    {
+      "testName": "透射系数 - 浅窄势垒",
+      "status": "PASS",
+      "details": "T理论=0.97246694, 状态=E < V₀ - 量子隧穿, 相对误差=0.0000%",
+      "timestamp": "2026-05-13T04:40:34.186Z"
+    },
+    {
+      "testName": "E > V₀量子效应 - E略高于V₀",
+      "status": "PASS",
+      "details": "T=0.78882369, T<1=true, T+R=1=true",
+      "timestamp": "2026-05-13T04:40:34.187Z"
+    },
+    {
+      "testName": "E > V₀量子效应 - E显著高于V₀",
+      "status": "PASS",
+      "details": "T=0.96571636, T<1=true, T+R=1=true",
+      "timestamp": "2026-05-13T04:40:34.187Z"
+    },
+    {
+      "testName": "E > V₀量子效应 - E远高于V₀",
+      "status": "PASS",
+      "details": "T=0.10924574, T<1=true, T+R=1=true",
+      "timestamp": "2026-05-13T04:40:34.187Z"
+    },
+    {
+      "testName": "概率守恒测试",
+      "status": "PASS",
+      "details": "最大偏差: 0.000000%, 容差: 0.100%",
+      "timestamp": "2026-05-13T04:40:34.198Z"
+    },
+    {
+      "testName": "边界吸收层验证",
+      "status": "PASS",
+      "details": "吸收层宽度=3单位",
+      "timestamp": "2026-05-13T04:40:34.199Z"
+    },
+    {
+      "testName": "极端参数 - 极高势垒 V₀=1000",
+      "status": "PASS",
+      "details": "T=1.1979e-196",
+      "timestamp": "2026-05-13T04:40:34.200Z"
+    },
+    {
+      "testName": "极端参数 - 超宽势垒 a=10",
+      "status": "PASS",
+      "details": "T=9.5160e-124",
+      "timestamp": "2026-05-13T04:40:34.201Z"
+    },
+    {
+      "testName": "极端参数 - 极高超宽势垒",
+      "status": "PASS",
+      "details": "T=0.0000e+0",
+      "timestamp": "2026-05-13T04:40:34.201Z"
+    },
+    {
+      "testName": "极端参数 - 极低极窄势垒",
+      "status": "PASS",
+      "details": "T=1.0000e+0",
+      "timestamp": "2026-05-13T04:40:34.202Z"
+    },
+    {
+      "testName": "极端参数 - 极窄势垒 a=0.01",
+      "status": "PASS",
+      "details": "T=1.0000e+0",
+      "timestamp": "2026-05-13T04:40:34.203Z"
+    },
+    {
+      "testName": "极端参数 - 极低势垒，超高能量",
+      "status": "PASS",
+      "details": "T=1.9813e-2",
+      "timestamp": "2026-05-13T04:40:34.204Z"
+    },
+    {
+      "testName": "后端数据存储精度",
+      "status": "PASS",
+      "details": "精度容差: 1e-10",
+      "timestamp": "2026-05-13T04:40:34.233Z"
+    }
+  ],
+  "generatedAt": "2026-05-13T04:40:34.233Z"
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#00d4ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="量子隧穿">
+    <meta name="description" content="基于Web的量子隧穿效应可视化演示实验">
+    <meta name="msapplication-TileColor" content="#0f172a">
+    <title>量子隧穿效应演示实验</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>量子隧穿效应演示实验</h1>
+            <p class="subtitle">Quantum Tunneling Effect Simulation</p>
+        </header>
+
+        <div class="main-content">
+            <div class="canvas-container">
+                <canvas id="simulationCanvas" width="900" height="400"></canvas>
+                <div class="legend">
+                    <span class="legend-item"><span class="color-box wave-color"></span> 波函数|ψ(x)|²</span>
+                    <span class="legend-item"><span class="color-box barrier-color"></span> 势垒 V(x)</span>
+                    <span class="legend-item"><span class="color-box energy-color"></span> 粒子能量 E</span>
+                </div>
+            </div>
+
+            <div class="controls-panel">
+                <div class="control-group">
+                    <h3>实验参数</h3>
+                    
+                    <div class="slider-control">
+                        <label>势垒高度 (V₀): <span id="barrierHeightValue">5.0</span></label>
+                        <input type="range" id="barrierHeight" min="0" max="10" step="0.1" value="5.0">
+                    </div>
+
+                    <div class="slider-control">
+                        <label>势垒宽度 (a): <span id="barrierWidthValue">2.0</span></label>
+                        <input type="range" id="barrierWidth" min="0.5" max="5" step="0.1" value="2.0">
+                    </div>
+
+                    <div class="slider-control">
+                        <label>粒子能量 (E): <span id="particleEnergyValue">3.0</span></label>
+                        <input type="range" id="particleEnergy" min="0.1" max="10" step="0.1" value="3.0">
+                    </div>
+
+                    <div class="slider-control">
+                        <label>波包初始位置: <span id="wavePositionValue">-8.0</span></label>
+                        <input type="range" id="wavePosition" min="-15" max="-5" step="0.5" value="-8.0">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h3>模拟控制</h3>
+                    <div class="status-display">
+                        <span id="simulationStatus" class="status-ready">就绪 - 等待开始</span>
+                    </div>
+                    <div class="performance-display" id="performanceDisplay">
+                        <span>FPS: <strong>0</strong></span>
+                        <span>步数: <strong>0</strong></span>
+                        <span>计算: <strong>0.00ms</strong></span>
+                    </div>
+                    <div class="button-group">
+                        <button id="startBtn" class="btn primary">开始模拟</button>
+                        <button id="pauseBtn" class="btn secondary">暂停</button>
+                        <button id="resetBtn" class="btn secondary">重置</button>
+                    </div>
+                    <div class="button-group">
+                        <button id="saveBtn" class="btn success">保存实验数据</button>
+                    </div>
+                </div>
+
+                <div class="results-panel">
+                    <h3>计算结果</h3>
+                    <div class="result-item">
+                        <span class="label">透射系数 (T):</span>
+                        <span class="value" id="transmissionCoeff">0.0000</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">反射系数 (R):</span>
+                        <span class="value" id="reflectionCoeff">1.0000</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">透射概率:</span>
+                        <span class="value percentage" id="transmissionProb">0.00%</span>
+                    </div>
+                    <div class="result-item highlight">
+                        <span class="label">隧穿状态:</span>
+                        <span class="value" id="tunnelingStatus">计算中...</span>
+                    </div>
+                </div>
+
+                <div class="history-panel">
+                    <h3>实验历史</h3>
+                    <div id="historyList" class="history-list">
+                        <p class="empty-history">暂无保存的实验数据</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="explanation">
+            <h3>量子隧穿效应原理</h3>
+            <p>量子隧穿是量子力学中的一种现象，粒子能够穿越在经典力学中不可能越过的势垒。这是由于粒子的波粒二象性。</p>
+            <p><strong>量子效应说明：</strong></p>
+            <ul>
+                <li><strong>E < V₀（量子隧穿）</strong>：经典禁止，量子概率隧穿势垒</li>
+                <li><strong>E ≈ V₀（共振隧穿）</strong>：透射系数发生共振增强</li>
+                <li><strong>E > V₀（量子振荡散射）</strong>：⚠️ 即使粒子能量高于势垒，由于量子波干涉效应，透射系数仍可能小于1！这是经典物理无法解释的纯量子现象。</li>
+            </ul>
+            <p><strong>透射系数公式（E < V₀时）：</strong></p>
+            <div class="formula">T ≈ 16(E/V₀)(1 - E/V₀)exp(-2κa), 其中 κ = √[2m(V₀-E)/ℏ²]</div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

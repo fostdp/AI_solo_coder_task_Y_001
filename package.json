@@ -1,0 +1,20 @@
+{
+  "name": "quantum-tunneling-demo",
+  "version": "1.0.0",
+  "description": "量子隧穿效应演示网页实验",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2",
+    "node-fetch": "^3.3.2"
+  },
+  "keywords": ["quantum", "tunneling", "physics", "simulation"],
+  "author": "",
+  "license": "MIT"
+}
